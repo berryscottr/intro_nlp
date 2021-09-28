@@ -7,6 +7,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity, euclidean_distances
 from sklearn.metrics import jaccard_score
 from scipy.cluster.hierarchy import dendrogram, linkage
+from gensim.corpora import Dictionary
 
 wpt = nltk.WordPunctTokenizer()
 stop_words = nltk.corpus.stopwords.words('english')
@@ -44,6 +45,8 @@ def main():
     cosine_similarity_df = pd.DataFrame(cosine_similarity_matrix)
     cosine_similarity_df
     jaccard_similarity_matrix = np.zeros((3, 3))
+    # dictionary = Dictionary(texts)
+    # corpus = [dictionary.doc2bow(text) for text in texts]
     for i in range(3):
         for j in range(3):
             # TODO: figure this out!
